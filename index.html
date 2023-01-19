@@ -20,7 +20,12 @@
                 border-radius: 0.5em;
                 box-shadow: 2px 3px 7px 2px rgba(0, 0, 0, 0.02);
             }
+            h2 {
+            opacity: 0.75;
+            }
             .btn-gradation {
+                margin-top: 32px;
+                margin-bottom: 32px;
                 display: inline-block;
                 width: 240px;
                 text-align: center;
@@ -31,7 +36,7 @@
                 padding: 12px 24px;
                 border-radius: 4px;
                 background-image: linear-gradient(-90deg, #303030, #202020);
-                transition: 0.5s;
+                transition: 0.2s;
                 background-size: 200%;
                 border-width: 0px;
                 box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.08);
@@ -39,18 +44,19 @@
 
             .btn-gradation:hover {
                 background-position: right center;
-                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+                box-shadow: 0px 6px 12px 4px rgba(0, 0, 0, 0.1);
             }
 
             .colorpicker {
                 width: 240px;
                 height: 64px;
-                margin: 16px;
+                margin-bottom: 16px;
             }
 
             .inputfield {
                 width: 240px;
-                margin: 16px;
+                margin: 0;
+                margin-bottom: 16px;
             }
 
             a:link,
@@ -70,9 +76,11 @@
     <body>
         <div>
             <h1>Blender AccentColor Changer</h1>
-
-            <input type="file" id="xml-file" accept=".xml" class="inputfield" />
             <br />
+            <h2>1. Upload Theme XML</h2>
+            <input type="file" id="xml-file" accept=".xml" class="inputfield"/>
+            <br />
+            <h2>2. Select Accent Color</h2>
             <label for="colorpicker"></label>
             <input type="color" id="colorpicker" class="colorpicker" value="#4772b3" />
             <br />
