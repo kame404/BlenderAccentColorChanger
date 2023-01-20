@@ -82,7 +82,7 @@
             <label for="colorpicker"></label>
             <input type="color" id="colorpicker" class="colorpicker" value="#4772b3" />
             <br />
-            <button type="button" class="btn-gradation" id="convert-button">Convert</button>
+            <button type="button" class="btn-gradation" id="apply-button">Apply</button>
         </div>
     </body>
 
@@ -116,11 +116,11 @@
             return color;
         }
 
-        const convertButton = document.getElementById("convert-button");
-        convertButton.addEventListener("click", function () {
+        const applyButton = document.getElementById("apply-button");
+        applyButton.addEventListener("click", function () {
             const xmlFile = document.getElementById("xml-file").files[0];
             if (!xmlFile) {
-                alert("Please select a Blender Theme file");
+                alert("Please select a Blender Theme file.");
                 return;
             }
             const reader = new FileReader();
