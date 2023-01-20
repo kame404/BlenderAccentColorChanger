@@ -87,11 +87,12 @@
     </body>
 
     <script>
-        // Declare mixedColor60 as a global variable
-        var mixedColor60;
 
-        // Get the color picker element
+        var mixedColor30 = "#1d314d";
+        var mixedColor50 = "#334d80";
+
         var colorPicker = document.getElementById("colorpicker");
+        console.log(colorPicker.value)
 
         // Add an event listener for the change event
         colorPicker.addEventListener("change", function () {
@@ -118,6 +119,10 @@
         const convertButton = document.getElementById("convert-button");
         convertButton.addEventListener("click", function () {
             const xmlFile = document.getElementById("xml-file").files[0];
+            if (!xmlFile) {
+                alert("Please select a Blender Theme file");
+                return;
+            }
             const reader = new FileReader();
             reader.onload = function () {
                 const parser = new DOMParser();
@@ -240,16 +245,17 @@
                     ThemeOutliner.setAttribute("active", mixedColor50);
                 }
                 const serializer = new XMLSerializer();
-                const modifiedXml = serializer.serializeToString(xmlDoc);
-                const element = document.createElement("a");
-                element.setAttribute("href", "data:text/xml;charset=utf-8," + encodeURIComponent(modifiedXml));
-                element.setAttribute("download", "modified.xml");
-                element.style.display = "none";
-                document.body.appendChild(element);
-                element.click();
-                document.body.removeChild(element);
-            };
-            reader.readAsText(xmlFile);
+        const modifiedXml = serializer.serializeToString(xmlDoc);
+        const element = document.createElement("a");
+        element.setAttribute("href", "data:text/xml;charset=utf-8," + encodeURIComponent(modifiedXml));
+        var fileName = xmlFile.name.split(".")[0];
+        element.setAttribute("download", fileName + "_mod.xml");
+        element.style.display = "none";
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    };
+    reader.readAsText(xmlFile);
         });
     </script>
 </html>
