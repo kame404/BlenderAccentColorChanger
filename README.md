@@ -1,3 +1,3 @@
 # BlenderAccentColorChanger
 
-https://kame404.github.io/BlenderAccentColorChanger/
+https://themes.kame404.com/
